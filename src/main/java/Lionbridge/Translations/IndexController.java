@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -67,6 +68,18 @@ public class IndexController {
 		return "allJobs";
 	}
 	
+	@GetMapping(value = "/job")
+	public String edit(@RequestParam String id, Model model) {
+		
+		Job job = mainSerice.getJob(id);
+		
+		model.addAttribute("job", job);
+		
+		return "job";
+	}
+	
+	
+	
 	@GetMapping("/greeting")
 	public String greeting(@RequestParam(name = "name", required = false, defaultValue = "World") String name,
 			Model model) {
@@ -115,7 +128,7 @@ public class IndexController {
 		HttpEntity<String> entity = new HttpEntity<String>(setHeaders(MediaType.APPLICATION_JSON, true));
 
 		RestTemplate rest = new RestTemplate();
-		ResponseEntity<String> exchange = rest.exchange(
+		ResponseEntity<String> exchange = rest.exchange(				
 				"https://content-api.lionbridge.com/v1/jobs/c95cf357-a825-4311-a81d-0976133a5a4f?fetchType=full",
 				HttpMethod.GET, entity, String.class);
 		return exchange.getBody();

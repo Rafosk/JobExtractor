@@ -8,6 +8,10 @@ public class Configuration {
 	
 	public final String jobURL = "https://content-api.lionbridge.com/v1/jobs/";
 	
+	public String getJobURL() {
+		return jobURL;
+	}
+
 	public String getAllJobsURL() {
 		return allJobsURL;
 	}

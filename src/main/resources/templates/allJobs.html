@@ -5,7 +5,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-This is list of all jobs
+This is list of all jobs<br />
+<a href="/">Back</a>
 	<p th:text="${status}" />
 	<table>
 		<tr>
@@ -15,7 +16,7 @@ This is list of all jobs
 			<th>action</th>
 		</tr>
 		<tr th:each="job: ${jobsList}">
-			<td th:text="${job.jobId}" />
+			<td><a th:href="@{/job(id=${job.jobId})}" th:text="${job.jobId}" /></a></td>
 			<td th:text="${job.jobName}" />
 			<td th:text="${job.dueDate}" />
 			<td>

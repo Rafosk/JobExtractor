@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Detailed information about job</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<table>
+	<a href="/allJobs">Back</a>
+	<tr><td>job id - </td><td><p th:text="${job.jobId}" /></td></tr>
+	<tr><td>job name - </td><td><p th:text="${job.jobName}" /></td></tr>
+	<tr><td>description - </td><td><p th:text="${job.description}" /></td></tr>
+	<tr><td>status code - </td><td><p th:text="${job.statusCode.statusCode}" /></td></tr>
+	<tr><td>has error - </td><td><p th:text="${job.hasError}" /></td></tr>
+	<tr><td>submitted id - </td><td><p th:text="${job.submitterId}" /></td></tr>
+	<tr><td>createor id - </td><td><p th:text="${job.creatorId}" /></td></tr>
+	<tr><td>provider id - </td><td><p th:text="${job.providerId}" /></td></tr>
+	<tr><td>poReference - </td><td><p th:text="${job.poReference}" /></td></tr>
+	<tr><td>due date - </td><td><p th:text="${job.dueDate}" /></td></tr>
+	<tr><td>create date - </td><td><p th:text="${job.createdDate}" /></td></tr>
+	<tr><td>modified date - </td><td><p th:text="${job.modifiedDate}" /></td></tr>
+	<tr><td>archived - </td><td><p th:text="${job.archived}" /></td></tr>
+
+</table>
+</body>
+</html>
