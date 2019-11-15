@@ -10,5 +10,4 @@ public class TranslationsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TranslationsApplication.class, args);
 	}
-
 }

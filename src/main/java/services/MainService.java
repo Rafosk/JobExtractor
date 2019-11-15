@@ -2,7 +2,7 @@ package services;
 
 import java.util.List;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -12,12 +12,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import beans.Job;
+import beans.JobDB;
+import dao.MainDAO;
 import utils.Configuration;
 import utils.Utils;
 
 @Service
 public class MainService implements IMainService {
 
+	@Autowired
+	private MainDAO mainDAO;
+	
 	private static Configuration conf = new Configuration();
 	
 	@Override
@@ -44,5 +49,10 @@ public class MainService implements IMainService {
 				url,
 				HttpMethod.GET, entity, Job.class);
 		return exchange.getBody();
+	}
+
+	public List<JobDB> getAllDBJobs() {
+		
+		return mainDAO.getDBJobs();
 	}
 }
