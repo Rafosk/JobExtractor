@@ -1,12 +1,6 @@
 package Lionbridge.Translations;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 
 import beans.Job;
 import beans.JobDB;
-import services.MainService;
+import services.IMainService;
 import utils.Configuration;
 
 import java.sql.*;
@@ -30,7 +24,7 @@ import java.util.List;
 public class IndexController {
 
 	@Autowired
-	private MainService mainSerice;
+	private IMainService mainSerice;
 
 	private static Configuration conf = new Configuration();
 
@@ -133,7 +127,7 @@ public class IndexController {
 
 		List<JobDB> jobDBList = mainSerice.getAllDBJobs();
 		
-		
+		System.out.println("test");
 		return "savedJobs";
 	}
 

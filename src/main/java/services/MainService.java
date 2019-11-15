@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 import beans.Job;
 import beans.JobDB;
-import dao.MainDAO;
+import dao.IMainDAO;
 import utils.Configuration;
 import utils.Utils;
 
@@ -21,7 +21,7 @@ import utils.Utils;
 public class MainService implements IMainService {
 
 	@Autowired
-	private MainDAO mainDAO;
+	private IMainDAO mainDAO;
 	
 	private static Configuration conf = new Configuration();
 	
@@ -50,7 +50,7 @@ public class MainService implements IMainService {
 				HttpMethod.GET, entity, Job.class);
 		return exchange.getBody();
 	}
-
+	
 	public List<JobDB> getAllDBJobs() {
 		
 		return mainDAO.getDBJobs();

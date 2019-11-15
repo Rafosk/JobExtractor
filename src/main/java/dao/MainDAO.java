@@ -8,8 +8,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import beans.JobDB;
 
+@Service
 public class MainDAO implements IMainDAO {
 
 	@Override
