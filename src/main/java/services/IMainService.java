@@ -14,4 +14,8 @@ public interface IMainService {
 	public Job getJob(String idJob);
 	
 	public List<JobDB> getAllDBJobs();
+
+	public String deleteJob(String id);
+
+	public String saveJobToDatabase(Job job);
 }

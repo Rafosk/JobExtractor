@@ -8,9 +8,7 @@ import org.springframework.http.MediaType;
 
 public class Utils {
 
-	private static Configuration conf = new Configuration();
-
-	public static HttpHeaders setHeaders(MediaType mediaType, boolean noCache) {
+	public static HttpHeaders setHeaders(MediaType mediaType, boolean noCache, String login) {
 		HttpHeaders headers = new HttpHeaders();
 		headers.set("Connection", "Close");
 		if (mediaType != null) {
@@ -20,7 +18,7 @@ public class Utils {
 		if (noCache) {
 			headers.setCacheControl("no-cache");
 		}
-		headers.add("Authorization", conf.getAuth());
+		headers.add("Authorization", login);
 		return headers;
 	}
 }

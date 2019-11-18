@@ -3,12 +3,26 @@
 <head>
 <title>List of all available Jobs</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="style.css" rel="stylesheet"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
-This is list of all jobs<br />
-<a href="/">Back</a>
+<body>  
+
+<main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Job extractor</h1>
+      <p class="lead text-muted">Welcome to the Job extractor. Here you can view and save jobs from Lionbridge Content API to database. In database you can delete jobs.</p>
+      <p>
+        <a href="/allJobs" class="btn btn-primary my-2">Lionbridge Content API</a>
+        <a href="/savedJobs" class="btn btn-secondary my-2">Database</a>
+      </p>
+    </div>
+  </section>
+</main> 
 	<p th:text="${status}" />
-	<table>
+	<table class="zui-table">
 		<tr>
 			<th>ID</th>
 			<th>job name</th>

@@ -3,12 +3,42 @@
 <head>
 <title>List of all saved jobs in database</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="style.css" rel="stylesheet"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
-List of all saved jobs in database<br />
-<a href="/">Back</a>
-	
-test
-	
+<body>  
+
+<main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Job extractor</h1>
+      <p class="lead text-muted">Welcome to the Job extractor. Here you can view and save jobs from Lionbridge Content API to database. In database you can delete jobs.</p>
+      <p>
+        <a href="/allJobs" class="btn btn-primary my-2">Lionbridge Content API</a>
+        <a href="/savedJobs" class="btn btn-secondary my-2">Database</a>
+      </p>
+    </div>
+  </section>
+</main> 
+<table class="zui-table">
+		<tr>
+			<th>ID</th>
+			<th>job name</th>
+			<th>creation date</th>
+			<th>action</th>
+		</tr>
+		<tr th:each="job: ${jobList}">
+			<td th:text="${job.jobID}" />
+			<td th:text="${job.jobName}" />
+			<td th:text="${job.createDate}" />
+			<td>
+				<form id="addJob" th:action="@{/deleteJob(id=${job.jobID})}" method="get" accept-charset="utf-8">
+					<input type="hidden" name="id" th:value="${job.jobID}" /> 
+					<input type="submit" value="Delete" />
+				</form>
+			</td>
+		</tr>
+	</table>	
 </body>
 </html>
