@@ -3,13 +3,34 @@
 <head>
 <title>List of all available Jobs</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="style.css" rel="stylesheet"/>
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+.zui-table {
+    border: solid 1px #DDEEEE;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font: normal 13px Arial, sans-serif;
+}
+.zui-table thead th {
+    background-color: #DDEFEF;
+    border: solid 1px #DDEEEE;
+    color: #336B6B;
+    padding: 10px;
+    text-align: left;
+    text-shadow: 1px 1px 1px #fff;
+}
+.zui-table tbody td {
+    border: solid 1px #DDEEEE;
+    color: #333;
+    padding: 10px;
+    text-shadow: 1px 1px 1px #fff;
+}
+</style>
+
 </head>
 <body>  
-
 <main role="main">
-
   <section class="jumbotron text-center">
     <div class="container">
       <h1 class="jumbotron-heading">Job extractor</h1>
@@ -20,8 +41,8 @@
       </p>
     </div>
   </section>
-</main> 
-	<p th:text="${status}" />
+</main> 	
+<b><p th:text="${status}"/></b>
 	<table class="zui-table">
 		<tr>
 			<th>ID</th>
